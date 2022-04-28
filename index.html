@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Exercício 10 - TP 1</title>
+    <style>
+        .realizado {
+            color: red;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+    <ul>
+        <li v-if="!tarefas.length">Lista Vazia</li>
+        <li v-for="tarefa in tarefas" :class=" {'realizado':tarefa.estaCompleta}">
+            {{tarefa.descricao}}
+        </li> 
+    </ul>
+</div>
+    <script>
+        Vue.createApp({ 
+            data(){
+                return{
+                    tarefas: [
+                        { id: 1 , descricao: "Realizar exercício 1", estaCompleta: false},
+                        { id: 2 , descricao: "Realizar exercício 2", estaCompleta: true},
+                        { id: 3 , descricao: "Realizar exercício 3", estaCompleta: false},
+                        { id: 4 , descricao: "Realizar exercício 4", estaCompleta: false},
+                        { id: 5 , descricao: "Realizar exercício 5", estaCompleta: true},
+                        { id: 6 , descricao: "Realizar exercício 6", estaCompleta: false},
+                        { id: 7 , descricao: "Realizar exercício 7", estaCompleta: true},
+                    ]
+                }
+            }
+            
+        }).mount("#app")
+    </script>
+</body>
+</html>
